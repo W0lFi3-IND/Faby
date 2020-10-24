@@ -1,4 +1,5 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.google.gms.google-services'
 
 android {
     compileSdkVersion 29
@@ -41,7 +42,7 @@ dependencies {
 
     // circular image view
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
-   // okHTTP
-    implementation'com.squareup.okhttp:okhttp:2.4.0'
+    // okHTTP
+    implementation 'com.squareup.okhttp:okhttp:2.4.0'
 
 }

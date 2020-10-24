@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "299195014",
+    "firebase_url": "https://faby-ffebb.firebaseio.com",
+    "project_id": "faby-ffebb",
+    "storage_bucket": "faby-ffebb.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:299195014:android:87f82cc25a8bd7e0d94f07",
+        "android_client_info": {
+          "package_name": "com.findingbetteryou.faby"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "299195014-vhpq0aptfii16hvos7qf0acqrb95548i.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.findingbetteryou.faby",
+            "certificate_hash": "1fdda49cc49136bc1e13ea33f334f6bb9ea9050d"
+          }
+        },
+        {
+          "client_id": "299195014-qcb44jn8vdbvohg8raabe9up20fna5ej.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAHV49tGf5jZAgqhbM6trXmX9QLcBeB9KA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "299195014-qcb44jn8vdbvohg8raabe9up20fna5ej.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
