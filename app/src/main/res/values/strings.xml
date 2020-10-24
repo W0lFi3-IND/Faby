@@ -1,3 +1,13 @@
 <resources>
     <string name="app_name">Faby</string>
+    <string name="otpVerification">OTP Verification</string>
+    <string name="otpVerificationMessage"><font color='#000000'>One Time Password</font> will be sent to you on this mobile number</string>
+    <string name="enterMobileNumber">Enter Mobile Number</string>
+    <string name="getOTP">Get OTP</string>
+    <string name="mandatory">Mandatory</string>
+    <string name="enterTheOTPSentTo">Enter the 6 digit OTP sent to</string>
+    <string name="verify">Verify</string>
+    <string name="signInSuccesfull">Sign in successfull</string>
+    <string name="errorMessage">Error occurred! Please try again later.</string>
+    <string name="invalidOTP">Invalid OTP</string>
 </resources>
