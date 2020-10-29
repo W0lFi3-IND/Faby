@@ -21,18 +21,6 @@
             android:layout_height="match_parent"
             android:background="@color/colorWhite">
 
-            <com.mikhaellopez.circularimageview.CircularImageView
-                android:id="@+id/displaypicture"
-                android:layout_width="82dp"
-                android:layout_height="82dp"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-
-                android:src="@drawable/ic_logo"
-                app:civ_border_color="@color/colorAccent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
             <TextView
                 android:id="@+id/displayName"
                 android:layout_width="wrap_content"
@@ -47,6 +35,46 @@
                 app:layout_constraintStart_toStartOf="@+id/displaypicture"
                 app:layout_constraintTop_toBottomOf="@+id/displaypicture" />
 
+            <TextView
+                android:id="@+id/Displayheight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Height"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.122"
+                app:layout_constraintStart_toEndOf="@+id/displaypicture"
+                app:layout_constraintTop_toBottomOf="@+id/DisplayAge" />
+
+            <TextView
+                android:id="@+id/DisplayAge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:text="Age"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.127"
+                app:layout_constraintStart_toEndOf="@+id/displaypicture"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/DisplayWeight"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:text="Weight"
+                android:textColor="@android:color/black"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.116"
+                app:layout_constraintStart_toEndOf="@+id/displaypicture"
+                app:layout_constraintTop_toBottomOf="@+id/Displayheight" />
+
             <View
                 android:id="@+id/view"
                 android:layout_width="0dp"
@@ -56,18 +84,45 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent" />
 
+            <com.mikhaellopez.circularimageview.CircularImageView
+                android:id="@+id/displaypicture"
+                android:layout_width="82dp"
+                android:layout_height="82dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="8dp"
+
+                android:src="@drawable/ic_logo"
+                app:civ_border_color="@color/colorAccent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
     <ImageButton
         android:id="@+id/imageButton"
-        style="@android:style/Widget.Holo.ImageButton"
+        style="@android:style/Widget.DeviceDefault.ImageButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="8dp"
+        android:adjustViewBounds="false"
+        android:background="@null"
+        android:cropToPadding="false"
         android:elevation=".2dp"
-        app:srcCompat="@drawable/msg"
-        tools:layout_editor_absoluteX="357dp"
-        tools:layout_editor_absoluteY="95dp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/cardView"
+        app:srcCompat="@drawable/msg" />
+
+    <ImageView
+        android:id="@+id/CalorieBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/cardView"
+        app:srcCompat="@drawable/caloriedashboard" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

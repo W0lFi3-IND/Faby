@@ -92,7 +92,7 @@
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/Weight"
+        android:id="@+id/DisplayWeight"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -134,8 +134,8 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:orientation="horizontal"
-        app:layout_constraintStart_toStartOf="@+id/Weight"
-        app:layout_constraintTop_toBottomOf="@+id/Weight">
+        app:layout_constraintStart_toStartOf="@+id/DisplayWeight"
+        app:layout_constraintTop_toBottomOf="@+id/DisplayWeight">
 
         <RadioButton
             android:id="@+id/male"
