@@ -1,5 +1,6 @@
 package com.findingbetteryou.faby.caloriecal;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -23,7 +24,7 @@ TextView textdate;
         findViewById(R.id.addBreakfastBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
             }
         });
     }

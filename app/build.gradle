@@ -14,7 +14,7 @@ android {
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
-
+    aaptOptions { noCompress "tflite" }
     buildTypes {
         release {
             minifyEnabled false
@@ -44,5 +44,9 @@ dependencies {
     implementation 'com.mikhaellopez:circularimageview:4.2.0'
     // okHTTP
     implementation 'com.squareup.okhttp:okhttp:2.4.0'
-
+    //camera
+    implementation 'com.wonderkiln:camerakit:0.13.1'
+    //mlkit
+    implementation 'com.google.firebase:firebase-ml-vision:24.0.3'
+    implementation 'com.google.firebase:firebase-ml-model-interpreter:22.0.3'
 }
