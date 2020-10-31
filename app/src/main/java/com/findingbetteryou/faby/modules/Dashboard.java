@@ -5,7 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 
 import com.findingbetteryou.faby.R;
-import com.findingbetteryou.faby.caloriecal.CalorieDashboard;
+import com.findingbetteryou.faby.waterlevel.WaterLevelDashboard;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -19,7 +19,7 @@ public class Dashboard extends AppCompatActivity {
         findViewById(R.id.CalorieBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(Dashboard.this, CalorieDashboard.class));
+                startActivity(new Intent(Dashboard.this, WaterLevelDashboard.class));
             }
         });
 
