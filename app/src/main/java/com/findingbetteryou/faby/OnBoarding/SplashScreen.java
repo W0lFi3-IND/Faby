@@ -4,8 +4,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 
-import com.findingbetteryou.faby.modules.MainActivity;
 import com.findingbetteryou.faby.R;
+import com.findingbetteryou.faby.modules.Dashboard;
 import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -20,7 +20,7 @@ public class SplashScreen extends AppCompatActivity {
             @Override
             public void run() {
                 if (FirebaseAuth.getInstance().getCurrentUser() != null){
-                    startActivity(new Intent(SplashScreen.this, MainActivity.class));
+                    startActivity(new Intent(SplashScreen.this, Dashboard.class));
                     finish();
                 }
                 else {
