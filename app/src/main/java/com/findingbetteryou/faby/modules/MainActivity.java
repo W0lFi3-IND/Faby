@@ -41,6 +41,25 @@ RadioButton maleFemale;
                 editor.putString("Gender",maleFemale.getText().toString());
                 editor.commit();
 
+                Float aa = Float.valueOf(sharedPreferences.getString("Age","0"));
+                int ww = Integer.valueOf(sharedPreferences.getString("Weight","0"));
+                float t1 = (float)(ww/30);
+                SharedPreferences pref1 = getApplicationContext().getSharedPreferences("WaterCap", 0); // 0 - for private mode
+                final SharedPreferences.Editor editorr = pref1.edit();
+                editorr.putFloat("totalwater",t1*1000);
+                editorr.commit();
+
+                //adddwater
+                final SharedPreferences addwater = getApplicationContext().getSharedPreferences("AddWater",0);
+                final SharedPreferences.Editor editor1 = addwater.edit();
+                editor1.putFloat("waterQty",0);
+                editor1.commit();
+
+                SharedPreferences waterData = getSharedPreferences("waterData",0);
+                SharedPreferences.Editor eeditor = waterData.edit();
+                eeditor.putInt("Good",0);
+                eeditor.putInt("Bad",0);
+                eeditor.commit();
                 startActivity(new Intent(MainActivity.this,Dashboard.class));
                 finish();
             }
