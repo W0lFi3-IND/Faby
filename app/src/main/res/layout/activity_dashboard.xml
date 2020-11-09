@@ -30,6 +30,7 @@
                 android:fontFamily="sans-serif"
                 android:text="Name"
                 android:textColor="@android:color/black"
+                android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/displaypicture"
                 app:layout_constraintStart_toStartOf="@+id/displaypicture"
