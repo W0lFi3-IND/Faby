@@ -6,127 +6,160 @@
     android:layout_height="match_parent"
     tools:context=".waterlevel.WaterLevelDashboard">
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:orientation="vertical"
+    <ScrollView
+        android:id="@+id/scrollView2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/DailGoal"
+            <ImageButton
+                android:id="@+id/waterImageBtn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="Daily Goal"
-                android:textColor="#FB8585"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:background="@null"
+                android:elevation="1dp"
+                android:scaleX=".75"
+                android:scaleY=".75"
+                app:layout_constraintBottom_toBottomOf="@+id/waveLoadingView"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@drawable/waterimagebtn" />
 
-            <TextView
-                android:id="@+id/Complete"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:id="@+id/linearLayout"
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="Complete"
-                android:textColor="#FB8585"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:layout_marginTop="16dp"
+                android:orientation="vertical"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/Total"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="Total"
-                android:textColor="#FB8585"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="horizontal"
-            android:paddingTop="16dp">
+                    <TextView
+                        android:id="@+id/DailGoal"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Daily Goal"
+                        android:textColor="#FB8585"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/dailGoal2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="Daily Goal"
-                android:textColor="#5C5C5C"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/Complete"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Complete"
+                        android:textColor="#FB8585"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-            <TextView
-                android:id="@+id/complete2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="Complete"
-                android:textColor="#5C5C5C"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                    <TextView
+                        android:id="@+id/Total"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Total"
+                        android:textColor="#FB8585"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
 
-            <TextView
-                android:id="@+id/total2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center_horizontal"
-                android:text="Total"
-                android:textColor="#5C5C5C"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-        </LinearLayout>
-    </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal"
+                    android:paddingTop="16dp">
 
-    <me.itangqi.waveloadingview.WaveLoadingView
-        android:id="@+id/waveLoadingView"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/linearLayout"
-        app:wlv_progressValue="20"
-        app:wlv_round_rectangle_x_and_y="0"
-        app:wlv_shapeType="rectangle"
-        app:wlv_titleCenter="Center Title"
-        app:wlv_titleCenterColor="@android:color/white"
-        app:wlv_titleCenterSize="64sp"
-        app:wlv_titleCenterStrokeColor="#FA4E4E"
-        app:wlv_titleCenterStrokeWidth="5dp"
-        app:wlv_triangle_direction="north"
-        app:wlv_waveAmplitude="50"
-        app:wlv_waveColor="#42C3E2"
-        tools:ignore="MissingConstraints" />
+                    <TextView
+                        android:id="@+id/dailGoal2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Daily Goal"
+                        android:textColor="#5C5C5C"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
 
-    <ImageButton
-        android:id="@+id/waterImageBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:background="@null"
-        android:scaleX=".75"
-        android:scaleY=".75"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/waterimagebtn" />
+                    <TextView
+                        android:id="@+id/complete2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Complete"
+                        android:textColor="#5C5C5C"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/total2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="Total"
+                        android:textColor="#5C5C5C"
+                        android:textSize="20sp"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <me.itangqi.waveloadingview.WaveLoadingView
+                android:id="@+id/waveLoadingView"
+                android:layout_width="0dp"
+                android:layout_height="744dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/linearLayout"
+                app:layout_constraintVertical_bias="0.0"
+                app:wlv_progressValue="20"
+                app:wlv_round_rectangle_x_and_y="0"
+                app:wlv_shapeType="rectangle"
+                app:wlv_titleCenter="Center Title"
+                app:wlv_titleCenterColor="@android:color/white"
+                app:wlv_titleCenterSize="64sp"
+                app:wlv_titleCenterStrokeColor="#FA4E4E"
+                app:wlv_titleCenterStrokeWidth="5dp"
+                app:wlv_triangle_direction="north"
+                app:wlv_waveAmplitude="50"
+                app:wlv_waveColor="#42C3E2"
+                tools:ignore="MissingConstraints" />
+
+            <com.github.mikephil.charting.charts.LineChart
+                android:id="@+id/chart"
+                android:layout_width="0dp"
+                android:layout_height="450dp"
+                android:background="#42C3E2"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/waveLoadingView"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/waterImageBtn"
+                app:layout_constraintVertical_bias="1.0">
+
+            </com.github.mikephil.charting.charts.LineChart>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,18 +1,31 @@
 package com.findingbetteryou.faby.waterlevel;
 
 import android.content.SharedPreferences;
+import android.graphics.Color;
+import android.graphics.DashPathEffect;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
 
 import com.findingbetteryou.faby.R;
+import com.github.mikephil.charting.charts.LineChart;
+import com.github.mikephil.charting.data.Entry;
+import com.github.mikephil.charting.data.LineData;
+import com.github.mikephil.charting.data.LineDataSet;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import me.itangqi.waveloadingview.WaveLoadingView;
 
@@ -20,10 +33,12 @@ public class WaterLevelDashboard extends AppCompatActivity {
 TextView tot,comp,dal;
     SharedPreferences add,show;
     float voll;
+    LineChart mLineChart;
     DatabaseReference mDatabaseReference,databaseReference;
     FirebaseAuth mAuth;
     Float total;
     WaveLoadingView mWaveLoadingView;
+    ArrayList<Entry> X;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +49,9 @@ TextView tot,comp,dal;
         tot = findViewById(R.id.total2);
         comp = findViewById(R.id.complete2);
         dal = findViewById(R.id.dailGoal2);
+        mLineChart = findViewById(R.id.chart);
+        mLineChart.setTouchEnabled(true);
+        mLineChart.setPinchZoom(true);
         add = getSharedPreferences("addwater",0);
         show = getSharedPreferences("WaterCap",0);
     total   = show.getFloat("totalwater",100);
@@ -49,7 +67,7 @@ TextView tot,comp,dal;
         String uid = user.getUid();
         mDatabaseReference= FirebaseDatabase.getInstance().getReference().child("WaterRecord").child(uid);
         databaseReference = FirebaseDatabase.getInstance().getReference().child("WaterData").child(uid);
-
+        avg();
         findViewById(R.id.waterImageBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -96,6 +114,78 @@ TextView tot,comp,dal;
             }
         });
 
+retrivedata();
+    }
+    private void avg() {
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                X = new ArrayList<>();
+                float total = 0;
+                List<Float> list = new ArrayList<>();
+                long count = dataSnapshot.getChildrenCount();
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {  String va = ds.child("Y").getValue().toString();
+                    float XA = Float.parseFloat(va);
+                    total+= XA;
 
+                    list.add(XA);
+                }
+                Collections.sort(list);
+                if(!list.isEmpty()) {
+                    float ans = total/1000;
+                    tot.setText("" + ans+" Lt");
+
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
+
+
+    private void retrivedata() {
+        mDatabaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                X = new ArrayList<>();
+                float i = 0;
+                for(DataSnapshot ds : dataSnapshot.getChildren())
+                {
+                    i=i+1;
+                    String va = ds.child("Y").getValue().toString();
+                    float XA = Float.parseFloat(va);
+                    X.add(new Entry(i,XA));
+                    final LineDataSet set1 = new LineDataSet(X,"WaterValue");
+                    LineData data = new LineData(set1);
+                    set1.setDrawIcons(false);
+                    set1.enableDashedLine(10f, 5f, 0f);
+                    set1.enableDashedHighlightLine(10f, 5f, 0f);
+                    set1.setColor(Color.DKGRAY);
+                    set1.setCircleColor(Color.DKGRAY);
+                    set1.setLineWidth(1f);
+                    set1.setCircleRadius(3f);
+                    set1.setDrawCircleHole(false);
+                    set1.setValueTextSize(9f);
+                    set1.setDrawFilled(true);
+                    set1.setFormLineWidth(1f);
+                    set1.setFormLineDashEffect(new DashPathEffect(new float[]{10f, 5f}, 0f));
+                    set1.setFormSize(15.f);
+                    mLineChart.setData(data);
+                    mLineChart.notifyDataSetChanged();
+                    mLineChart.invalidate();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
     }
+
+
+}
