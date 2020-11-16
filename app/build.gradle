@@ -53,4 +53,6 @@ dependencies {
     implementation 'me.itangqi.waveloadingview:library:0.3.5'
     // Android chart
     implementation 'com.github.PhilJay:MPAndroidChart:v3.1.0'
+
+    //croller
 }
