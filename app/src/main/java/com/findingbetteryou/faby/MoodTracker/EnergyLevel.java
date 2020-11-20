@@ -10,8 +10,13 @@ import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.findingbetteryou.faby.R;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import java.security.Timestamp;
 
 public class EnergyLevel extends AppCompatActivity {
 
@@ -19,7 +24,10 @@ public class EnergyLevel extends AppCompatActivity {
     private SeekBar seekBar;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
-    private TextView Prog;
+    private TextView progressText;
+    private FirebaseDatabase firebaseDatabase;
+    private DatabaseReference databaseReference;
+    private FirebaseAuth firebaseAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,13 +39,19 @@ public class EnergyLevel extends AppCompatActivity {
         setContentView(R.layout.activity_energy_level);
         proceed = findViewById(R.id.buttonProceedEnergyLevel);
         seekBar = findViewById(R.id.seekBar);
-Prog = findViewById(R.id.progressNumber);
+        progressText = findViewById(R.id.progressNumber);
+
+        firebaseDatabase = FirebaseDatabase.getInstance();
+        databaseReference = firebaseDatabase.getReference().child("MOOD_TRACKER").child("MOOD_DATA");
+        firebaseAuth = FirebaseAuth.getInstance();
+
+
         seekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int progress, boolean fromUser) {
-                editor.putInt("ENERGY_LEVEL", progress);
+                editor.putString("ENERGY_LEVEL", Integer.toString(progress));
                 editor.commit();
-                Prog.setText(""+progress);
+                progressText.setText(""+progress);
             }
 
             @Override
@@ -54,8 +68,21 @@ Prog = findViewById(R.id.progressNumber);
         proceed.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                addDataToFirebase();
                 startActivity(new Intent(EnergyLevel.this, CheckHistory.class));
+                finish();
             }
         });
+    }
+
+    private void addDataToFirebase() {
+        Long tsLong = System.currentTimeMillis()/1000;
+        String ts = tsLong.toString();
+
+        String mood = sharedPreferences.getString("MOOD", "FINE");
+        String energy = sharedPreferences.getString("ENERGY_LEVEL", "5");
+
+        databaseReference.child(firebaseAuth.getUid()).child(ts).child("MOOD").setValue(mood);
+        databaseReference.child(firebaseAuth.getUid()).child(ts).child("ENERGY_LEVEL").setValue(energy);
     }
 }

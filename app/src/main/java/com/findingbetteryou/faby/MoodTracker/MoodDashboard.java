@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.findingbetteryou.faby.R;
@@ -16,6 +17,7 @@ public class MoodDashboard extends AppCompatActivity {
     private ImageView fineImage;
     private ImageView tiredImage;
     private ImageView sadImage;
+    private Button checkHistory;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor editor;
     @Override
@@ -27,6 +29,7 @@ public class MoodDashboard extends AppCompatActivity {
         fineImage = findViewById(R.id.fineIcon);
         tiredImage = findViewById(R.id.tiredIcon);
         sadImage = findViewById(R.id.sadIcon);
+        checkHistory = findViewById(R.id.checkHistoryButton);
 
         sharedPreferences = getSharedPreferences("com.findingbetteryou.faby.MoodTracker", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
@@ -64,6 +67,13 @@ public class MoodDashboard extends AppCompatActivity {
                 editor.putString("MOOD", "SAD");
                 editor.commit();
                 startActivity(new Intent(MoodDashboard.this, EnergyLevel.class));
+            }
+        });
+
+        checkHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MoodDashboard.this, CheckHistory.class));
             }
         });
     }

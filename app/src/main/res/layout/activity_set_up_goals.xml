@@ -4,34 +4,46 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MoodTracker.CheckHistory">
+    tools:context=".MoodTracker.SetUpGoals">
 
     <Button
-        android:id="@+id/setUpGoalsButton"
+        android:id="@+id/addGoalsButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Set up/Review your Goals +"
+        android:background="@color/yellowButton"
+        android:text="Add Goals +"
         android:textAllCaps="false"
+        android:textColor="@android:color/white"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="23dp"
+        android:fontFamily="@font/gentium_book_basic"
+        android:text="Your goals will have 5 checkpoints"
+        android:textColor="@android:color/black"
+        android:textSize="22sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/addGoalsButton" />
+
     <LinearLayout
+        android:id="@+id/goalsLinearLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:id="@+id/moodHistoryLinearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/setUpGoalsButton">
+        app:layout_constraintTop_toBottomOf="@+id/textView4">
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/goalsRecyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/moodHistoryRecyclerView"/>
-
+            android:layout_height="wrap_content" />
     </LinearLayout>
-
-
 
 </androidx.constraintlayout.widget.ConstraintLayout>

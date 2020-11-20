@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MoodTracker.CheckHistory"></activity>
+        <activity android:name=".MoodTracker.SetUpGoals"></activity>
+        <activity android:name=".MoodTracker.CheckHistory" />
         <activity android:name=".MoodTracker.EnergyLevel" />
         <activity android:name=".MoodTracker.MoodDashboard" />
         <activity android:name=".waterlevel.WaterLevelDashboard" />
