@@ -4,9 +4,11 @@ public class CalDetails {
     public String item;
     public String totalcal;
 
+
     public CalDetails(String item, String totalcal) {
         this.item = item;
         this.totalcal = totalcal;
+
     }
 
     public CalDetails() {
@@ -20,6 +22,7 @@ public class CalDetails {
     public String getTotalcal() {
         return totalcal;
     }
+
 
 
 }

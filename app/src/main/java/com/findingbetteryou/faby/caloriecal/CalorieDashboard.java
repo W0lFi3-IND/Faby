@@ -15,7 +15,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CalorieDashboard extends AppCompatActivity {
 TextView textdate;
-TextView textView5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,25 +26,44 @@ TextView textView5;
                 startActivity(new Intent(CalorieDashboard.this,Calhistory.class));
             }
         });
-        setDateText();
-       /* findViewById(R.id.addSnacksBtn).setOnClickListener(new View.OnClickListener() {
+        findViewById(R.id.textView6).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
+                startActivity(new Intent(CalorieDashboard.this,CalhistoryforLunch.class));
+            }
+        });
+        findViewById(R.id.textView7).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalorieDashboard.this,CalhistoryforDinner.class));
+            }
+        });
+        findViewById(R.id.textView8).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalorieDashboard.this,CalhistoryforSnacks.class));
+            }
+        });
+
+        setDateText();
+        findViewById(R.id.addSnacksBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalorieDashboard.this,DetectCalorieforSnacks.class));
             }
         });
         findViewById(R.id.addDinnerBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
+                startActivity(new Intent(CalorieDashboard.this,DetectCalorieforDinner.class));
             }
         });
        findViewById(R.id.addLunchBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
+                startActivity(new Intent(CalorieDashboard.this,DetectCalorieforLunch.class));
             }
-        });*/
+        });
         findViewById(R.id.addBreakfastBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

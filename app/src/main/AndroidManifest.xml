@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".caloriecal.Calhistory"></activity>
+        <activity android:name=".caloriecal.CalhistoryforSnacks"></activity>
+        <activity android:name=".caloriecal.CalhistoryforDinner" />
+        <activity android:name=".caloriecal.CalhistoryforLunch" />
+        <activity android:name=".caloriecal.DetectCalorieforDinner" />
+        <activity android:name=".caloriecal.DetectCalorieforSnacks" />
+        <activity android:name=".caloriecal.DetectCalorieforLunch" />
         <activity android:name=".caloriecal.Calorielisting" />
-        <activity android:name=".caloriecal.Calorielist" />
+        <activity android:name=".caloriecal.Calhistory" />
         <activity android:name=".MoodTracker.SetUpGoals" />
         <activity android:name=".MoodTracker.CheckHistory" />
         <activity android:name=".MoodTracker.EnergyLevel" />

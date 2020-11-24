@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
-public class Calhistory extends AppCompatActivity {
+public class CalhistoryforLunch extends AppCompatActivity {
     ListView listview;
     DatabaseReference databaseReference;
     List<CalDetails> list;
@@ -27,7 +27,7 @@ public class Calhistory extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_calhistory);
+        setContentView(R.layout.activity_calhistoryfor_lunch);
         firebaseAuth = FirebaseAuth.getInstance();
         listview=findViewById(R.id.listview);
         textView3=findViewById(R.id.textView3);
@@ -38,7 +38,7 @@ public class Calhistory extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         String uid = firebaseAuth.getUid();
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("Calorie_Recorder").child("Breakfast").child(uid);
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("Calorie_Recorder").child("Lunch").child(uid);
         if (databaseReference != null) {
             databaseReference.addValueEventListener(new ValueEventListener() {
 
@@ -49,7 +49,7 @@ public class Calhistory extends AppCompatActivity {
                         CalDetails db = a.getValue(CalDetails.class);
                         list.add(db);
                     }
-                    Calorielisting adapter = new Calorielisting(Calhistory.this, list);
+                    Calorielisting adapter = new Calorielisting(CalhistoryforLunch.this, list);
                     listview.setAdapter(adapter);
                 }
 

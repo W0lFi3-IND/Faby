@@ -44,7 +44,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-public class DetectCalorie extends AppCompatActivity {
+public class DetectCalorieforSnacks extends AppCompatActivity {
     CameraView mCameraView;
     FirebaseModelInterpreter interpreter;
     FirebaseModelInterpreterOptions options;
@@ -75,7 +75,7 @@ public class DetectCalorie extends AppCompatActivity {
         setContentView(R.layout.activity_detect_calorie);
         firebaseAuth = FirebaseAuth.getInstance();
         firebaseDatabase = FirebaseDatabase.getInstance();
-        databaseReference = firebaseDatabase.getReference().child("Calorie_Recorder").child("Breakfast").child(firebaseAuth.getUid());
+        databaseReference = firebaseDatabase.getReference().child("Calorie_Recorder").child("Snacks").child(firebaseAuth.getUid());
 
 
         mCameraView = findViewById(R.id.cameraview);
@@ -182,9 +182,9 @@ public class DetectCalorie extends AppCompatActivity {
                                 ans = "";
 
                                 //hashmap to store values
-                                 final String item = entry.getValue();
-                                 final HashMap<String,Integer> calorie = new HashMap<String, Integer>();
-                                 calorie.put("pizza",266);
+                                final String item = entry.getValue();
+                                final HashMap<String,Integer> calorie = new HashMap<String, Integer>();
+                                calorie.put("pizza",266);
                                 calorie.put("butter_chicken",437);
                                 calorie.put("butter_naan",110);
                                 calorie.put("chicken_fried_rice",163);
@@ -207,7 +207,7 @@ public class DetectCalorie extends AppCompatActivity {
                                 calorie.put("vada_pav",197);
 
                                 //alert dialog to display item and enter quantity
-                                AlertDialog.Builder builder = new AlertDialog.Builder(DetectCalorie.this);
+                                AlertDialog.Builder builder = new AlertDialog.Builder(DetectCalorieforSnacks.this);
                                 builder.setTitle(item.toUpperCase());
                                 builder.setMessage("Enter quantity wrt servings");
                                 final View alertdialog = getLayoutInflater().inflate(R.layout.alertdialog,null);
