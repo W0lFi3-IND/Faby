@@ -15,16 +15,41 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class CalorieDashboard extends AppCompatActivity {
 TextView textdate;
+TextView textView5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_calorie_dashboard);
         textdate = findViewById(R.id.dateview);
+        findViewById(R.id.textView5).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalorieDashboard.this,Calhistory.class));
+            }
+        });
         setDateText();
+       /* findViewById(R.id.addSnacksBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
+            }
+        });
+        findViewById(R.id.addDinnerBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
+            }
+        });
+       findViewById(R.id.addLunchBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
+            }
+        });*/
         findViewById(R.id.addBreakfastBtn).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
+                startActivity(new Intent(CalorieDashboard.this,DetectCalorie.class));
             }
         });
     }
