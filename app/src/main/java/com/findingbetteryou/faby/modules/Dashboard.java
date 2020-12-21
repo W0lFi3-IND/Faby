@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.findingbetteryou.faby.MoodTracker.MoodDashboard;
+import com.findingbetteryou.faby.PeriodTracker.PeriodTrackerDashboard;
 import com.findingbetteryou.faby.R;
 import com.findingbetteryou.faby.caloriecal.CalorieDashboard;
 import com.findingbetteryou.faby.waterlevel.WaterLevelDashboard;
@@ -46,6 +47,13 @@ TextView h,w,a,n;
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Dashboard.this, MoodDashboard.class));
+            }
+        });
+        findViewById(R.id.periodBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Dashboard.this, PeriodTrackerDashboard.class));
+
             }
         });
     }
